@@ -9,5 +9,6 @@ while True:
     for event in pg.event.get():
         if event.type == pg.QUIT:
             pg.quit() #Close Game
+            print('Quiting...')
             print('Game Closed')
             quit() #End Pygame
