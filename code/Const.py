@@ -1,2 +1,10 @@
+#C
+COLOR_RED = (255, 57, 36)
+COLOR_LIME = (186, 255, 36)
+#M
+MENU_OPTION = ('NEW GAME 1P',
+               'NEW GAME 2P - COOPERATIVE',
+               'SCORE', 'EXIT')
+#W
 WIN_WIDTH= 576
 WIN_HEIGHT= 324

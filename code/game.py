@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+import pygame
 import pygame as pg
 
 from code.Const import WIN_WIDTH, WIN_HEIGHT
@@ -13,15 +14,7 @@ class Game:
 
 
     def run(self):
-
         while True:
             menu = Menu(self.window)
             menu.run()
-            pass
-
-            for event in pg.event.get():
-                if event.type == pg.QUIT:
-                    pg.quit()  # Close Game
-                    print('Game Closed')
-                    quit()  # End Pygame
 
