@@ -16,5 +16,16 @@ class Game:
     def run(self):
         while True:
             menu = Menu(self.window)
-            menu.run()
+            menu_return = menu.run()
+
+            match menu_return:
+                case 'NEW GAME 1P':
+                    pass
+                case 'EXIT':
+                    pygame.quit()  # Close Game
+                    print('Game Closed')
+                    quit()  # End Pygame
+                case _:
+                    pass
+
 
