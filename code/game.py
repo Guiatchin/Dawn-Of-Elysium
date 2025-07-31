@@ -20,7 +20,7 @@ class Game:
             menu_return = menu.run()
 
             match menu_return:
-                case ['NEW GAME 1P', 'NEW GAME 2P']:
+                case 'NEW GAME 1P':
                     level = Level(self.window, 'Level 1', menu_return)
                     level_return = level.run()
                 case 'EXIT':
