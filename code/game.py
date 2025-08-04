@@ -23,6 +23,10 @@ class Game:
                 case 'NEW GAME 1P':
                     level = Level(self.window, 'Level 1', menu_return)
                     level_return = level.run()
+                case 'NEW GAME 2P - COOPERATIVE':
+                    level = Level(self.window, 'Level 1', menu_return)
+                    level_return = level.run()
+
                 case 'EXIT':
                     pygame.quit()  # Close Game
                     print('Game Closed')
