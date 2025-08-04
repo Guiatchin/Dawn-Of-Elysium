@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from abc import abstractmethod
+
 
 from code.Const import WIN_WIDTH, ENTITY_SPEED
 from code.entity import Entity
