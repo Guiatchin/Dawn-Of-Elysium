@@ -7,6 +7,18 @@ COLOR_WHITE = (255, 255, 255)
 COLOR_BLACK = (0, 0, 0)
 COLOR_ORANGE = (255, 165, 0)
 #E
+ENTITY_HEALTH = {
+'bg30': 999, 'bg31': 999,
+    'bg32': 999, 'bg33': 999,
+    'bg34': 999, 'bg40': 999,
+    'bg41': 999, 'bg42': 999,
+    'bg43': 999, 'bg44': 999,
+    'bg45': 999,
+    'Player1': 200, 'Player2': 200,
+    'Enemy1': 50, 'Enemy2': 60,
+
+
+}
 ENTITY_SPEED = { 'bg30' : 0,
                  'bg31' : 1,
                  'bg32' : 2,
