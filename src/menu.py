@@ -20,6 +20,7 @@ class Menu:
         pygame.mixer_music.set_volume(0.4)
 
         while True:
+            pygame.display.set_caption('Dawn Of Elysium')
             self.window.blit(source=self.surf, dest=self.rect)
 
             self.menu_text(60, 'Dawn Of', COLOR_RED, ((WIN_WIDTH / 2), 70))

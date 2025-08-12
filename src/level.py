@@ -10,7 +10,7 @@ from src.entityFactory import EntityFactory
 from pygame import Rect, Surface
 from pygame.font import Font
 
-from src.Const import  WIN_HEIGHT, COLOR_ORANGE, MENU_OPTION, EVENT_ENEMY
+from src.Const import WIN_HEIGHT, COLOR_ORANGE, MENU_OPTION, EVENT_ENEMY, COLOR_LIME
 from src.player import Player
 
 
@@ -37,8 +37,10 @@ class Level:
                     shoot = ent.shoot()
                     if shoot is not None:
                         self.entity_list.append(ent.shoot())
-
-
+                if ent.name =='Player1':
+                    self.level_text(14, f'Player 1 - Health {ent.health} | Score: {ent.score}' , COLOR_LIME, (10,25))
+                if ent.name =='Player2':
+                    self.level_text(14, f'Player 2 - Health {ent.health} | Score: {ent.score}', COLOR_LIME, (10,45))
 
             for event in pygame.event.get(): #event listener
                 if event.type == pygame.QUIT:
@@ -48,6 +50,8 @@ class Level:
                 if event.type == EVENT_ENEMY:
                     choice = random.choice(('Enemy1','Enemy2'))
                     self.entity_list.append(EntityFactory.get_entity(choice))
+
+
             pygame.display.flip()
 
             self.level_text(14, f'{self.name} - timeout: {self.timeout / 1000 : .1f}s', COLOR_ORANGE, (10,5))
@@ -56,7 +60,6 @@ class Level:
             pygame.display.flip()
             EntityMediator.collision_check(entity_list=self.entity_list)
             EntityMediator.health_check(entity_list=self.entity_list)
-    pass
 
 
 
