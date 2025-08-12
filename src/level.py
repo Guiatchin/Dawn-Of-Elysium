@@ -3,13 +3,15 @@
 import pygame
 import random
 
-from code.EntityMediator import EntityMediator
-from code.entity import Entity
-from code.entityFactory import EntityFactory
+from src.EntityMediator import EntityMediator
+from src.enemy import Enemy
+from src.entity import Entity
+from src.entityFactory import EntityFactory
 from pygame import Rect, Surface
 from pygame.font import Font
 
-from code.Const import  WIN_HEIGHT, COLOR_ORANGE, MENU_OPTION, EVENT_ENEMY
+from src.Const import  WIN_HEIGHT, COLOR_ORANGE, MENU_OPTION, EVENT_ENEMY
+from src.player import Player
 
 
 class Level:
@@ -31,7 +33,12 @@ class Level:
             for ent in self.entity_list:
                 self.window.blit(source=ent.surf,dest=ent.rect)
                 ent.move()
-            pygame.display.flip()
+                if isinstance(ent,(Player, Enemy)): #Guilherme Ferreira
+                    shoot = ent.shoot()
+                    if shoot is not None:
+                        self.entity_list.append(ent.shoot())
+
+
 
             for event in pygame.event.get(): #event listener
                 if event.type == pygame.QUIT:
@@ -41,6 +48,7 @@ class Level:
                 if event.type == EVENT_ENEMY:
                     choice = random.choice(('Enemy1','Enemy2'))
                     self.entity_list.append(EntityFactory.get_entity(choice))
+            pygame.display.flip()
 
             self.level_text(14, f'{self.name} - timeout: {self.timeout / 1000 : .1f}s', COLOR_ORANGE, (10,5))
             self.level_text(14, f'fps: {clock.get_fps():.0f}', COLOR_ORANGE, (10,WIN_HEIGHT - 35))

@@ -4,7 +4,7 @@ from abc import ABC, abstractmethod
 
 import pygame
 
-from code.Const import ENTITY_HEALTH
+from src.Const import ENTITY_HEALTH
 
 
 class Entity(ABC):

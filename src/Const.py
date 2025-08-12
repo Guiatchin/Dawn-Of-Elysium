@@ -14,8 +14,10 @@ ENTITY_HEALTH = {
     'bg41': 999, 'bg42': 999,
     'bg43': 999, 'bg44': 999,
     'bg45': 999,
-    'Player1': 200, 'Player2': 200,
-    'Enemy1': 50, 'Enemy2': 60,
+    'Player1': 200,'Player1Shot': 1,
+    'Player2': 200,'Player2Shot': 1,
+    'Enemy1': 50, 'Enemy1Shot': 1,
+    'Enemy2': 60, 'Enemy2Shot': 1
 
 
 }
@@ -25,10 +27,19 @@ ENTITY_SPEED = { 'bg30' : 0,
                  'bg33' : 3,
                  'bg34' : 4,
                  'Player1' : 3,
+                 'Player1Shot' :7,
                  'Player2' : 3,
-                 'Enemy1' : 1,
-                 'Enemy2': 2,
+                 'Player2Shot' : 7,
+                 'Enemy1' : 2,
+                 'Enemy1Shot' : 6,
+                 'Enemy2': 3,
+                 'Enemy2Shot' : 7
                  }
+ENTITY_SHOT_DELAY = { 'Player1' : 15,
+                      'Player2' : 15,
+                      'Enemy1' : 60,
+                      'Enemy2' : 100,
+                    }
 EVENT_ENEMY = pygame.USEREVENT + 1
 
 #M
@@ -46,7 +57,7 @@ PLAYER_KEY_LEFT = {'Player1': pygame.K_LEFT,
                    'Player2': pygame.K_a}
 PLAYER_KEY_RIGHT = {'Player1': pygame.K_RIGHT,
                     'Player2': pygame.K_d}
-PLAYER_KEY_SHOOT = {'Player1': pygame.K_RCTRL,
+PLAYER_KEY_SHOOT = {'Player1': pygame.K_RALT,
                     'Player2': pygame.K_LCTRL}
 
 

@@ -3,9 +3,9 @@
 import pygame
 import pygame as pg
 
-from code.Const import WIN_WIDTH, WIN_HEIGHT
-from code.level import Level
-from code.menu import Menu
+from src.Const import WIN_WIDTH, WIN_HEIGHT
+from src.level import Level
+from src.menu import Menu
 
 
 class Game:

@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 
-from code.Const import WIN_WIDTH, ENTITY_SPEED
-from code.entity import Entity
+from src.Const import WIN_WIDTH, ENTITY_SPEED
+from src.entity import Entity
 
 
 class Background(Entity):
