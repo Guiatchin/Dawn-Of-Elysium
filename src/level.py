@@ -26,6 +26,7 @@ class Level:
         if game_mode in [MENU_OPTION[1], MENU_OPTION[2]]:
             self.entity_list.append(EntityFactory.get_entity('Player2'))
         pygame.time.set_timer(EVENT_ENEMY,3000)
+
     def run(self, ):
         clock = pygame.time.Clock()
         while True:
@@ -36,7 +37,7 @@ class Level:
                 if isinstance(ent,(Player, Enemy)): #Guilherme Ferreira
                     shoot = ent.shoot()
                     if shoot is not None:
-                        self.entity_list.append(ent.shoot())
+                        self.entity_list.append(shoot)
                 if ent.name =='Player1':
                     self.level_text(14, f'Player 1 - Health {ent.health} | Score: {ent.score}' , COLOR_LIME, (10,25))
                 if ent.name =='Player2':

@@ -59,7 +59,7 @@ ENTITY_SPEED = {'bg30': 0,
 ENTITY_SHOT_DELAY = {'Player1': 15,
                      'Player2': 15,
                      'Enemy1': 60,
-                     'Enemy2': 100,
+                     'Enemy2': 60,
                      }
 EVENT_ENEMY = pygame.USEREVENT + 1
 
