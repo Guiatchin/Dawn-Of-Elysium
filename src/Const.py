@@ -6,47 +6,51 @@ COLOR_LIME = (186, 255, 36)
 COLOR_WHITE = (255, 255, 255)
 COLOR_BLACK = (0, 0, 0)
 COLOR_ORANGE = (255, 165, 0)
+COLOR_PURPLE = (74, 19, 122)
+COLOR_BLUE = (0, 255, 0)
 # E
-ENTITY_DAMAGE = {'bg30': 0, 'bg31': 0,
-                 'bg32': 0, 'bg33': 0,
-                 'bg34': 0, 'bg40': 0,
-                 'bg41': 0, 'bg42': 0,
-                 'bg43': 0, 'bg44': 0,
-                 'bg45': 0, 'Player1Shot': 25,
-                 'Player1': 5, 'Player2Shot': 25,
+ENTITY_DAMAGE = {'Level1bg0': 0, 'Level1bg1': 0,
+                 'Level1bg2': 0, 'Level1bg3': 0,
+                 'Level1bg4': 0, 'Level2bg0': 0,
+                 'Level2bg1': 0, 'Level2bg2': 0,
+                 'Level2bg3': 0, 'Level2bg4': 0,
+                 'Level2bg5': 0, 'Player1Shot': 25,
+                 'Player1': 5,   'Player2Shot': 25,
                  'Player2': 5,
-                 'Enemy1Shot': 15, 'Enemy1': 5,
-                 'Enemy2Shot': 20, 'Enemy2': 5
+                 'Enemy1Shot': 20, 'Enemy1': 5,
+                 'Enemy2Shot': 25, 'Enemy2': 5
                  }
-ENTITY_SCORE = {'bg30': 0, 'bg31': 0,
-                'bg32': 0, 'bg33': 0,
-                'bg34': 0, 'bg40': 0,
-                'bg41': 0, 'bg42': 0,
-                'bg43': 0, 'bg44': 0,
-                'bg45': 0, 'Player1Shot': 0,
+ENTITY_SCORE = { 'Level1bg0': 0, 'Level1bg1': 0,
+                 'Level1bg2': 0, 'Level1bg3': 0,
+                 'Level1bg4': 0, 'Level2bg0': 0,
+                 'Level2bg1': 0, 'Level2bg2': 0,
+                 'Level2bg3': 0, 'Level2bg4': 0,
+                 'Level2bg5': 0,
+                'Player1Shot': 0,
                 'Player1': 0, 'Player2Shot': 0,
                 'Player2': 0,
                 'Enemy1Shot': 0, 'Enemy1': 100,
                 'Enemy2Shot': 0, 'Enemy2': 115
                 }
-ENTITY_HEALTH = {
-    'bg30': 999, 'bg31': 999,
-    'bg32': 999, 'bg33': 999,
-    'bg34': 999, 'bg40': 999,
-    'bg41': 999, 'bg42': 999,
-    'bg43': 999, 'bg44': 999,
-    'bg45': 999,
-    'Player1': 200, 'Player1Shot': 1,
-    'Player2': 200, 'Player2Shot': 1,
-    'Enemy1': 50, 'Enemy1Shot': 1,
-    'Enemy2': 60, 'Enemy2Shot': 1
+ENTITY_HEALTH = {'Level1bg0': 999, 'Level1bg1': 999,
+                 'Level1bg2': 999, 'Level1bg3': 999,
+                 'Level1bg4': 999, 'Level2bg0': 999,
+                 'Level2bg1': 999, 'Level2bg2': 999,
+                 'Level2bg3': 999, 'Level2bg4': 999,
+                 'Level2bg5': 999,
+                 'Player1': 200, 'Player1Shot': 1,
+                 'Player2': 200, 'Player2Shot': 1,
+                 'Enemy1': 50, 'Enemy1Shot': 1,
+                 'Enemy2': 60, 'Enemy2Shot': 1
 
 }
-ENTITY_SPEED = {'bg30': 0,
-                'bg31': 1,
-                'bg32': 2,
-                'bg33': 3,
-                'bg34': 4,
+ENTITY_SPEED = {'Level1bg0': 0, 'Level1bg1': 1,
+                'Level1bg2': 2, 'Level1bg3': 3,
+                'Level1bg4': 4, 'Level2bg0': 0,
+                'Level2bg1': 3, 'Level2bg2': 2,
+                'Level2bg3': 3, 'Level2bg4': 4,
+                'Level2bg5': 5,
+
                 'Player1': 3,
                 'Player1Shot': 7,
                 'Player2': 3,
@@ -61,8 +65,9 @@ ENTITY_SHOT_DELAY = {'Player1': 15,
                      'Enemy1': 60,
                      'Enemy2': 60,
                      }
-EVENT_ENEMY = pygame.USEREVENT + 1
 
+EVENT_ENEMY = pygame.USEREVENT + 1
+EVENT_TIMEOUT = pygame.USEREVENT + 2
 # M
 MENU_OPTION = ('NEW GAME 1P',
                'NEW GAME 2P - COOPERATIVE',
@@ -102,3 +107,6 @@ SCORE_POS = {'Title': (WIN_WIDTH / 2, 50),
              8: (WIN_WIDTH / 2, 270),
              9: (WIN_WIDTH / 2, 290),
              }
+# T
+TIMEOUT_STEP = 100
+TIMEOUT_LEVEL = 20000

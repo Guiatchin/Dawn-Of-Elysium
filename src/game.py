@@ -18,14 +18,22 @@ class Game:
         while True:
             menu = Menu(self.window)
             menu_return = menu.run()
+            player_score = [0, 0] #[Player1, PLayer2]
 
             match menu_return:
                 case 'NEW GAME 1P':
-                    level = Level(self.window, 'Level 1', menu_return)
-                    level_return = level.run()
+                    level = Level(self.window, 'Level1', menu_return,player_score)
+                    level_return = level.run(player_score)
+                    if level_return:
+                        level = Level(self.window, 'Level2', menu_return,player_score)
+                        level_return = level.run(player_score)
+
                 case 'NEW GAME 2P - COOPERATIVE':
-                    level = Level(self.window, 'Level 1', menu_return)
-                    level_return = level.run()
+                    level = Level(self.window, 'Level1', menu_return,player_score)
+                    level_return = level.run(player_score)
+                    if level_return:
+                        level = Level(self.window, 'Level2', menu_return,player_score)
+                        level_return = level.run(player_score)
 
                 case 'EXIT':
                     pygame.quit()  # Close Game

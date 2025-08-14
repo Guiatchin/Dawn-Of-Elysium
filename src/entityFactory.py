@@ -11,12 +11,20 @@ class EntityFactory:
     @staticmethod
     def get_entity(entity_name):
         match entity_name:
-            case 'bg30':
+            case 'Level1bg0': #Level 1
                 list_bg = []
-                for i in range(5):
-                    list_bg.append(Background(f'bg3{i}', (0,0)))
-                    list_bg.append(Background(f'bg3{i}', (WIN_WIDTH,0)))
+                for i in range(5): #Level 1 Bg images
+                    list_bg.append(Background(f'Level1bg{i}', (0,0)))
+                    list_bg.append(Background(f'Level1bg{i}', (WIN_WIDTH,0)))
                 return list_bg
+
+            case 'Level2bg0': #Level 2
+                list_bg = []
+                for i in range(6): #Level 2 Bg images
+                    list_bg.append(Background(f'Level2bg{i}', (0, 0)))
+                    list_bg.append(Background(f'Level2bg{i}', (WIN_WIDTH, 0)))
+                return list_bg
+
             case 'Player1':
                 return Player('Player1', (10,WIN_HEIGHT / 2 -30))
             case 'Player2':
