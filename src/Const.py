@@ -84,7 +84,7 @@ PLAYER_KEY_LEFT = {'Player1': pygame.K_LEFT,
 PLAYER_KEY_RIGHT = {'Player1': pygame.K_RIGHT,
                     'Player2': pygame.K_d}
 PLAYER_KEY_SHOOT = {'Player1': pygame.K_RALT,
-                    'Player2': pygame.K_LCTRL}
+                    'Player2': pygame.K_LSHIFT}
 
 # W
 WIN_WIDTH = 576
@@ -109,4 +109,4 @@ SCORE_POS = {'Title': (WIN_WIDTH / 2, 50),
              }
 # T
 TIMEOUT_STEP = 100
-TIMEOUT_LEVEL = 20000
+TIMEOUT_LEVEL = 10000
