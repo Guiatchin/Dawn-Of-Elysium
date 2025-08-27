@@ -4,6 +4,7 @@ import pygame
 import random
 
 from src.EntityMediator import EntityMediator
+from src.boss import Boss
 from src.enemy import Enemy
 from src.entity import Entity
 from src.entityFactory import EntityFactory
@@ -21,6 +22,7 @@ class Level:
         self.window = window
         self.name = name
         self.game_mode = game_mode
+        self.level_state = ''
         self.entity_list: list[Entity] = []
         self.entity_list.extend(EntityFactory.get_entity(self.name + 'bg0'))
         player = EntityFactory.get_entity('Player1')
@@ -39,6 +41,7 @@ class Level:
         clock = pygame.time.Clock()
         while True:
             clock.tick(60)
+
             for ent in self.entity_list:
                 self.window.blit(source=ent.surf, dest=ent.rect)
                 ent.move()
@@ -61,7 +64,7 @@ class Level:
                     self.entity_list.append(EntityFactory.get_entity(choice))
                 if event.type == EVENT_TIMEOUT:
                     self.timeout -= TIMEOUT_STEP
-                    if self.timeout == 0:
+                    if self.timeout == 0 and self.name =='Level1':
                         for ent in self.entity_list:
                             if isinstance(ent, Player) and ent.name == 'Player1':
                                 player_score[0] = ent.score
@@ -69,12 +72,33 @@ class Level:
                                 player_score[1] = ent.score
                         return True
 
-                found_player = False
+                    elif self.timeout == 0 and self.name == 'Level2':
+                            self.entity_list.append(EntityFactory.get_entity('Boss'))
+                            print(f"Existe algum Boss na lista? {any(isinstance(ent, Boss) for ent in self.entity_list)}")
+                            self.level_state = 'boss battle'
+
+            if self.level_state == 'boss battle':
+                if any(isinstance(ent, Boss) for ent in self.entity_list):
+                    pass
+                else:
+                    self.level_state = 'vitoria'
+
+            if self.level_state == 'vitoria':
+                print(self.level_state)
                 for ent in self.entity_list:
-                    if isinstance(ent, Player):
-                        found_player = True
-                if not found_player:
-                    return False
+                    if isinstance(ent, Player) and ent.name == 'Player1':
+                        player_score[0] = ent.score
+                    if isinstance(ent, Player) and ent.name == 'Player2':
+                        player_score[1] = ent.score
+                return True
+
+
+                # found_player = False
+                # for ent in self.entity_list:
+                #     if isinstance(ent, Player):
+                #         found_player = True
+                #     if not found_player:
+                #         return False
 
             self.level_text(14, f'{self.name} - timeout: {self.timeout / 1000 : .1f}s', COLOR_ORANGE, (10, 5))
             self.level_text(14, f'fps: {clock.get_fps():.0f}', COLOR_ORANGE, (10, WIN_HEIGHT - 35))

@@ -2,6 +2,7 @@ import random
 
 from src.Const import WIN_WIDTH, WIN_HEIGHT
 from src.background import Background
+from src.boss import Boss
 from src.enemy import Enemy
 from src.player import Player
 
@@ -33,6 +34,8 @@ class EntityFactory:
                 return Enemy('Enemy1',(WIN_WIDTH + 10, random.randint(40, WIN_HEIGHT - 40) ))
             case 'Enemy2':
                 return Enemy('Enemy2',(WIN_WIDTH + 10, random.randint(40, WIN_HEIGHT - 40) ))
+            case 'Boss':
+                return Boss('Boss', (WIN_WIDTH + 10, random.randint(40, WIN_HEIGHT - 70) ))
 
 
 
