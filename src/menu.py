@@ -15,7 +15,7 @@ class Menu:
 
     def run(self, ):
         menu_option = 0
-        pygame.mixer_music.load('./assets/dystopian-future.wav')
+        pygame.mixer_music.load('./assets/menu.ogg')
         pygame.mixer_music.play(-1)
         pygame.mixer_music.set_volume(0.4)
 

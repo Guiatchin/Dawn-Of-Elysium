@@ -37,11 +37,11 @@ ENTITY_HEALTH = {'Level1bg0': 999, 'Level1bg1': 999,
                  'Level1bg4': 999, 'Level2bg0': 999,
                  'Level2bg1': 999, 'Level2bg2': 999,
                  'Level2bg3': 999, 'Level2bg4': 999,
-                 'Level2bg5': 999, 'Boss': 300,
+                 'Level2bg5': 999, 'Boss': 400,
                  'Player1': 200, 'Player1Shot': 1,
                  'Player2': 200, 'Player2Shot': 1,
                  'Enemy1': 50, 'Enemy1Shot': 1,
-                 'Enemy2': 60, 'Enemy2Shot': 1
+                 'Enemy2': 50, 'Enemy2Shot': 1
 
 }
 ENTITY_SPEED = {'Level1bg0': 0, 'Level1bg1': 1,
@@ -98,6 +98,7 @@ SCORE_POS = {'Title': (WIN_WIDTH / 2, 50),
              'EnterName': (WIN_WIDTH / 2, 80),
              'Label': (WIN_WIDTH / 2, 90),
              'Name': (WIN_WIDTH / 2, 110),
+             'FinalScore': (WIN_WIDTH / 2, 140),
              0: (WIN_WIDTH / 2, 110),
              1: (WIN_WIDTH / 2, 130),
              2: (WIN_WIDTH / 2, 150),
@@ -111,4 +112,4 @@ SCORE_POS = {'Title': (WIN_WIDTH / 2, 50),
              }
 # T
 TIMEOUT_STEP = 100
-TIMEOUT_LEVEL = 10000
+TIMEOUT_LEVEL = 20000

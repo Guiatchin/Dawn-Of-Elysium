@@ -5,7 +5,7 @@ import pygame
 from pygame import Surface, Rect, K_ESCAPE
 from pygame.font import Font
 
-from src.Const import COLOR_ORANGE, SCORE_POS, MENU_OPTION, COLOR_BLACK
+from src.Const import COLOR_ORANGE, SCORE_POS, MENU_OPTION, COLOR_BLACK, COLOR_RED
 from src.DBProxy import DBProxy
 
 
@@ -20,21 +20,26 @@ class Score:
         name = ''
         while True:
             self.window.blit(source=self.surf, dest=self.rect)
-            self.score_text(48, 'YOU WIN!!', COLOR_ORANGE, SCORE_POS['Title'])
+            self.score_text(48, 'YOU WIN!!', COLOR_RED, SCORE_POS['Title'])
             score = player_score[0]
             text = 'Enter Player 1 name (4 characters):'
+            self.score_text(24, f'FINAL SCORE {score}', COLOR_RED, SCORE_POS['FinalScore'])
 
             if game_mode == MENU_OPTION[0]:
                 score = player_score[0]
+                self.score_text(24, f'FINAL SCORE {score}', COLOR_RED, SCORE_POS['FinalScore'])
             if game_mode == MENU_OPTION[1]:
                 score = (player_score[0] + player_score[1]) / 2
                 text = 'Enter TEAM name (4 characters):'
+                self.score_text(24, f'FINAL SCORE {score}', COLOR_RED, SCORE_POS['FinalScore'])
             if game_mode == MENU_OPTION[2]:
                 if player_score[0] >= player_score[1]:
                     score = player_score[0]
+                    self.score_text(24, f'FINAL SCORE {score}', COLOR_RED, SCORE_POS['FinalScore'])
                 else:
                     score = player_score[1]
                     text = 'Enter Player 2 name (4 characters):'
+                    self.score_text(24, f'FINAL SCORE {score}', COLOR_RED, SCORE_POS['FinalScore'])
             self.score_text(20, text, COLOR_BLACK, SCORE_POS['EnterName'])
 
             for event in pygame.event.get():

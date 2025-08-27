@@ -11,7 +11,7 @@ from src.entityFactory import EntityFactory
 from pygame import Rect, Surface
 from pygame.font import Font
 
-from src.Const import WIN_HEIGHT, COLOR_ORANGE, MENU_OPTION, EVENT_ENEMY, COLOR_LIME, EVENT_TIMEOUT, TIMEOUT_STEP, \
+from src.Const import WIN_HEIGHT, COLOR_ORANGE, MENU_OPTION, EVENT_ENEMY, EVENT_TIMEOUT, TIMEOUT_STEP, \
     TIMEOUT_LEVEL, COLOR_BLUE, COLOR_PURPLE
 from src.player import Player
 
@@ -34,10 +34,13 @@ class Level:
             player.score = player_score[1]
             self.entity_list.append(player)
 
-        pygame.time.set_timer(EVENT_ENEMY, 3000)
+        pygame.time.set_timer(EVENT_ENEMY, 2000)
         pygame.time.set_timer(EVENT_TIMEOUT, TIMEOUT_STEP)
 
     def run(self, player_score: list[int]):
+        pygame.mixer_music.load(f'./assets/level.ogg')
+        pygame.mixer_music.set_volume(0.4)
+        pygame.mixer_music.play(-1)
         clock = pygame.time.Clock()
         while True:
             clock.tick(60)
@@ -74,8 +77,8 @@ class Level:
 
                     elif self.timeout == 0 and self.name == 'Level2':
                             self.entity_list.append(EntityFactory.get_entity('Boss'))
-                            print(f"Existe algum Boss na lista? {any(isinstance(ent, Boss) for ent in self.entity_list)}")
                             self.level_state = 'boss battle'
+
 
             if self.level_state == 'boss battle':
                 if any(isinstance(ent, Boss) for ent in self.entity_list):
@@ -84,7 +87,6 @@ class Level:
                     self.level_state = 'vitoria'
 
             if self.level_state == 'vitoria':
-                print(self.level_state)
                 for ent in self.entity_list:
                     if isinstance(ent, Player) and ent.name == 'Player1':
                         player_score[0] = ent.score
@@ -93,12 +95,12 @@ class Level:
                 return True
 
 
-                # found_player = False
-                # for ent in self.entity_list:
-                #     if isinstance(ent, Player):
-                #         found_player = True
-                #     if not found_player:
-                #         return False
+            found_player = False
+            for ent in self.entity_list:
+                if isinstance(ent, Player):
+                    found_player = True
+            if not found_player:
+                return False
 
             self.level_text(14, f'{self.name} - timeout: {self.timeout / 1000 : .1f}s', COLOR_ORANGE, (10, 5))
             self.level_text(14, f'fps: {clock.get_fps():.0f}', COLOR_ORANGE, (10, WIN_HEIGHT - 35))
