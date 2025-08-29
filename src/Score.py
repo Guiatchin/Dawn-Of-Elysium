@@ -5,7 +5,7 @@ import pygame
 from pygame import Surface, Rect, K_ESCAPE
 from pygame.font import Font
 
-from src.Const import COLOR_ORANGE, SCORE_POS, MENU_OPTION, COLOR_BLACK, COLOR_RED
+from src.Const import SCORE_POS, MENU_OPTION, COLOR_BLACK, COLOR_RED
 from src.DBProxy import DBProxy
 
 
@@ -63,15 +63,15 @@ class Score:
     def show(self):
         self.window.blit(source=self.surf, dest=self.rect)
         while True:
-            self.score_text(48, 'TOP 10 SCORE', COLOR_ORANGE, SCORE_POS['Title'])
-            self.score_text(20, 'NAME     SCORE           DATE      ', COLOR_ORANGE, SCORE_POS['Label'])
+            self.score_text(48, 'TOP 10 SCORE', COLOR_BLACK, SCORE_POS['Title'])
+            self.score_text(20, 'NAME     SCORE           DATE      ', COLOR_BLACK, SCORE_POS['Label'])
             db_proxy = DBProxy('DBScore')
             list_score = db_proxy.retrieve_top10()
             db_proxy.close()
 
             for player_score in list_score:
                 id_, name, score, date = player_score
-                self.score_text(20, f'{name}     {score:05d}     {date}', COLOR_ORANGE,
+                self.score_text(20, f'{name}     {score:05d}     {date}', COLOR_BLACK,
                                 SCORE_POS[list_score.index(player_score)])
             while True:
                 for event in pygame.event.get():

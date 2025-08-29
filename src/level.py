@@ -22,7 +22,7 @@ class Level:
         self.window = window
         self.name = name
         self.game_mode = game_mode
-        self.level_state = ''
+        self.level_state = 'timeout'
         self.entity_list: list[Entity] = []
         self.entity_list.extend(EntityFactory.get_entity(self.name + 'bg0'))
         player = EntityFactory.get_entity('Player1')
@@ -48,6 +48,9 @@ class Level:
             for ent in self.entity_list:
                 self.window.blit(source=ent.surf, dest=ent.rect)
                 ent.move()
+                if isinstance(ent, Enemy):
+                    ent.healthbar(self.window)
+
                 if isinstance(ent, (Player, Enemy)):  # Guilherme Ferreira
                     shoot = ent.shoot()
                     if shoot is not None:
@@ -67,7 +70,7 @@ class Level:
                     self.entity_list.append(EntityFactory.get_entity(choice))
                 if event.type == EVENT_TIMEOUT:
                     self.timeout -= TIMEOUT_STEP
-                    if self.timeout == 0 and self.name =='Level1':
+                    if self.timeout == 0 and self.name == 'Level1':
                         for ent in self.entity_list:
                             if isinstance(ent, Player) and ent.name == 'Player1':
                                 player_score[0] = ent.score
@@ -76,9 +79,8 @@ class Level:
                         return True
 
                     elif self.timeout == 0 and self.name == 'Level2':
-                            self.entity_list.append(EntityFactory.get_entity('Boss'))
-                            self.level_state = 'boss battle'
-
+                        self.entity_list.append(EntityFactory.get_entity('Boss'))
+                        self.level_state = 'boss battle'
 
             if self.level_state == 'boss battle':
                 if any(isinstance(ent, Boss) for ent in self.entity_list):
@@ -94,7 +96,6 @@ class Level:
                         player_score[1] = ent.score
                 return True
 
-
             found_player = False
             for ent in self.entity_list:
                 if isinstance(ent, Player):
@@ -102,7 +103,11 @@ class Level:
             if not found_player:
                 return False
 
-            self.level_text(14, f'{self.name} - timeout: {self.timeout / 1000 : .1f}s', COLOR_ORANGE, (10, 5))
+            if self.level_state == 'timeout':
+                self.level_text(14, f'{self.name} - timeout: {self.timeout / 1000 : .1f}s', COLOR_ORANGE, (10, 5))
+            else:
+                self.level_text(14, f'{self.name} - Final Boss!', COLOR_ORANGE, (10, 5))
+
             self.level_text(14, f'fps: {clock.get_fps():.0f}', COLOR_ORANGE, (10, WIN_HEIGHT - 35))
             self.level_text(14, f'entidades: {len(self.entity_list)}', COLOR_ORANGE, (10, WIN_HEIGHT - 20))
             pygame.display.flip()

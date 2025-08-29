@@ -27,7 +27,7 @@ class EntityMediator:
         valid_collision = False
         if isinstance(ent1, Enemy) and isinstance(ent2, PlayerShot):
             valid_collision = True
-        elif isinstance(ent1, PlayerShot) and isinstance(ent2, Enemy):
+        elif isinstance(ent1, Player) and isinstance(ent2, Enemy):
             valid_collision = True
         elif isinstance(ent1, PlayerShot) and isinstance(ent2, Enemy):
             valid_collision = True
