@@ -13,7 +13,7 @@ class Player(Entity):
         self.shot_delay = ENTITY_SHOT_DELAY[self.name]
         self.last_shot_time = pygame.time.get_ticks()
 
-    def move(self, ):
+    def move(self):
         pressed_key = pygame.key.get_pressed()
         # Checks for movement's keys being pressed
         if pressed_key[PLAYER_KEY_UP[self.name]] and self.rect.top > 0:

@@ -15,17 +15,17 @@ ENTITY_DAMAGE = {'Level1bg0': 0, 'Level1bg1': 0,
                  'Level2bg1': 0, 'Level2bg2': 0,
                  'Level2bg3': 0, 'Level2bg4': 0,
                  'Level2bg5': 0, 'Player1Shot': 25,
-                 'Player1': 5,   'Player2Shot': 25,
+                 'Player1': 5, 'Player2Shot': 25,
                  'Player2': 5, 'Boss': 100,
                  'Enemy1Shot': 20, 'Enemy1': 5,
                  'Enemy2Shot': 25, 'Enemy2': 5
                  }
-ENTITY_SCORE = { 'Level1bg0': 0, 'Level1bg1': 0,
-                 'Level1bg2': 0, 'Level1bg3': 0,
-                 'Level1bg4': 0, 'Level2bg0': 0,
-                 'Level2bg1': 0, 'Level2bg2': 0,
-                 'Level2bg3': 0, 'Level2bg4': 0,
-                 'Level2bg5': 0,
+ENTITY_SCORE = {'Level1bg0': 0, 'Level1bg1': 0,
+                'Level1bg2': 0, 'Level1bg3': 0,
+                'Level1bg4': 0, 'Level2bg0': 0,
+                'Level2bg1': 0, 'Level2bg2': 0,
+                'Level2bg3': 0, 'Level2bg4': 0,
+                'Level2bg5': 0,
                 'Player1Shot': 0,
                 'Player1': 0, 'Player2Shot': 0,
                 'Player2': 0, 'Boss': 300,
@@ -43,7 +43,7 @@ ENTITY_HEALTH = {'Level1bg0': 999, 'Level1bg1': 999,
                  'Enemy1': 50, 'Enemy1Shot': 1,
                  'Enemy2': 50, 'Enemy2Shot': 1
 
-}
+                 }
 ENTITY_SPEED = {'Level1bg0': 0, 'Level1bg1': 1,
                 'Level1bg2': 2, 'Level1bg3': 3,
                 'Level1bg4': 4, 'Level2bg0': 0,
@@ -112,4 +112,4 @@ SCORE_POS = {'Title': (WIN_WIDTH / 2, 50),
              }
 # T
 TIMEOUT_STEP = 100
-TIMEOUT_LEVEL = 20000
+TIMEOUT_LEVEL = 15000

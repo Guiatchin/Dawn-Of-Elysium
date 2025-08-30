@@ -4,7 +4,7 @@ import pygame
 from pygame import Rect, Surface
 from pygame.font import Font
 
-from src.Const import WIN_WIDTH, COLOR_RED, MENU_OPTION, COLOR_LIME, COLOR_BLACK
+from src.Const import WIN_WIDTH, COLOR_RED, MENU_OPTION, COLOR_BLACK
 
 
 class Menu:
@@ -13,7 +13,7 @@ class Menu:
         self.surf = pygame.image.load('./assets/background2/orig.png').convert_alpha()
         self.rect = self.surf.get_rect(left=0, top=0)
 
-    def run(self, ):
+    def run(self):
         menu_option = 0
         pygame.mixer_music.load('./assets/menu.ogg')
         pygame.mixer_music.play(-1)
@@ -54,10 +54,6 @@ class Menu:
                             menu_option = len(MENU_OPTION) - 1
                     if event.key == pygame.K_RETURN:
                         return MENU_OPTION[menu_option]
-
-
-
-
 
     def menu_text(self, text_size: int, text: str, text_color: tuple, text_center_pos: tuple):
         text_font: Font = pygame.font.SysFont(name="Lucida Sans Typewriter", size=text_size)

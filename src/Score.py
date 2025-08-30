@@ -23,7 +23,7 @@ class Score:
             self.score_text(48, 'YOU WIN!!', COLOR_RED, SCORE_POS['Title'])
             score = player_score[0]
             text = 'Enter Player 1 name (4 characters):'
-            self.score_text(24, f'FINAL SCORE {score}', COLOR_RED, SCORE_POS['FinalScore'])
+
 
             if game_mode == MENU_OPTION[0]:
                 score = player_score[0]

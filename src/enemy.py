@@ -17,7 +17,7 @@ class Enemy(Entity):
         self.healthbar_height = 7
         self.healthbar_offset_y = -10
 
-    def move(self, ):
+    def move(self):
         self.rect.centerx -= ENTITY_SPEED[self.name]
 
     def shoot(self):
@@ -25,16 +25,17 @@ class Enemy(Entity):
         if self.shot_delay == 0:
             self.shot_delay = ENTITY_SHOT_DELAY[self.name]
             return EnemyShot(name=f'{self.name}Shot', position=(self.rect.centerx, self.rect.centery))
+        return None
 
     def healthbar(self, window):
         if self.health < self.max_health:
             x = self.rect.x
             y = self.rect.y + self.healthbar_offset_y
-            #health bar background
-            healthbar_bg = pygame.Rect(x,y,self.healthbar_width, self.healthbar_height)
-            pygame.draw.rect(window,COLOR_BLACK,healthbar_bg)
-            #Current health
-            current_health = (self.health / self.max_health) *  self.healthbar_width
-            #current health bar
-            current_health_width = pygame.Rect(x,y,current_health, self.healthbar_height)
-            pygame.draw.rect(window,COLOR_RED,current_health_width)
+            # health bar background
+            healthbar_bg = pygame.Rect(x, y, self.healthbar_width, self.healthbar_height)
+            pygame.draw.rect(window, COLOR_BLACK, healthbar_bg)
+            # Current health
+            current_health = (self.health / self.max_health) * self.healthbar_width
+            # current health bar
+            current_health_width = pygame.Rect(x, y, current_health, self.healthbar_height)
+            pygame.draw.rect(window, COLOR_RED, current_health_width)
